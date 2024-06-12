@@ -72,7 +72,7 @@ class QLearningAgent:
         if self.epsilon > self.min_epsilon:
             self.epsilon *= self.epsilon_decay
 
-def simulate_agent(agent, env, episodes=10):
+def simulate_agent(agent, env, episodes=1000):
     for episode in range(episodes):
         state = env.reset()
         total_reward = 0
@@ -108,7 +108,8 @@ def visualize_grid(env, total_reward, steps):
 
     plt.title(f'Total Reward: {total_reward} Steps: {steps}')
     plt.show(block=False)
-    plt.pause(0.5)
+    plt.pause(0.3)
+    input("Press Enter to continue...")  # Kullanıcıdan giriş bekleyin
     plt.close()
 
 
@@ -117,7 +118,7 @@ if __name__ == "__main__":
     agent = QLearningAgent((4, 4), 4)
 
     # Train the agent
-    episodes = 50
+    episodes = 5
     for episode in range(episodes):
         state = env.reset()
         total_reward = 0

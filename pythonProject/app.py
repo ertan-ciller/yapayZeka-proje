@@ -74,7 +74,7 @@ if __name__ == "__main__": #Programın çalışacağı main classı
     env = GridWorld() #enviroment in oluşturulabilmesi için gridWorld class ı  çağrılır.
     agent = QLearningAgent((4, 4), 4) #Durum uzayı (4x4) ve eylem uzayına (4 yön) sahip bir QLearningAgent ajanı oluşturur.
 
-    episodes = 100
+    episodes = 1000
     for episode in range(episodes):  #Eğitim döngüsünde kaç epizod çalıştırılacağını belirtir (1000 epizod).
         state = env.reset() #Her epizod başında ortam sıfırlanır (state = env.reset()) ve toplam ödül (total_reward) sıfırlanır.
         total_reward = 0
@@ -101,4 +101,3 @@ if __name__ == "__main__": #Programın çalışacağı main classı
         state = next_state
         if done:
             break
-    print(agent.q_table)
